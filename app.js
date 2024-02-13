@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const _ = require("lodash");
-require("dotenv").config();
+require('dotenv').config();
 
 const homeStartingContent = `Understanding Asynchronous Programming 🔄:
 
@@ -24,7 +24,7 @@ app.use(express.static("public"));
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(`${process.env.MONGODB_ATLAS_URL}`);
+  await mongoose.connect(process.env.MONGODB_ATLAS_URL);
 }
 
 const postSchema = new mongoose.Schema({
