@@ -1,8 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 3001;
 const ejs = require("ejs");
 const _ = require("lodash");
 require('dotenv').config();
+const mongodbConnectionString = process.env.MONGODB_ATLAS_URL;
 
 const homeStartingContent = `Understanding Asynchronous Programming 🔄:
 
@@ -24,7 +26,7 @@ app.use(express.static("public"));
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.MONGODB_ATLAS_URL);
+  await mongoose.connect(mongodbConnectionString);
 }
 
 const postSchema = new mongoose.Schema({
@@ -81,6 +83,6 @@ app.get("/contact", (req, res) => {
   res.render("contact", { contact: contactContent });
 });
 
-app.listen(3001, function () {
-  console.log("Server started on port 3001");
+app.listen(port, "0.0.0.0", function () {
+  console.log("Listening to port 3001");
 });
