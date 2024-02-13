@@ -1,0 +1,22 @@
+<%- include("partials/header") -%>
+<h1>Home</h1>
+<div>
+  <p>
+    <strong>Welcome to MyBlog! 🚀</strong> Dive into the world of web
+    development with our comprehensive tutorials and articles, covering
+    everything from the basics to advanced techniques. Join our vibrant
+    community to connect with fellow developers, share experiences, and stay
+    inspired. Explore clean code practices and discover the latest industry
+    trends to keep your skills sharp. Ready to embark on your coding journey?
+    Start here with MyBlog and embrace continuous learning for a fulfilling and
+    exciting development experience. Happy bloging! 🎉
+  </p>
+</div>
+
+<% posts.forEach(element =>{ %>
+<h1><%= element.postTitle %></h1>
+<p>
+  <%=element.postBody.substring(0, 100) + " ..."%>
+  <a href="/posts/<%=element.postTitle%>">Read More</a>
+</p>
+<% }) %> <%- include("partials/footer") -%>
