@@ -26,11 +26,7 @@ app.use(express.static("public"));
 main().catch((err) => console.log(err));
 
 async function main() {
-  try {
-    await mongoose.connect("mongodb://localhost:27017/test");
-  } catch (error) {
-    handleError(error);
-  }
+  await mongoose.connect(mongodbConnectionString);
 }
 
 const postSchema = new mongoose.Schema({
