@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 3001;
 const ejs = require("ejs");
 const _ = require("lodash");
-require('dotenv').config();
+require("dotenv").config();
 const mongodbConnectionString = process.env.MONGODB_ATLAS_URL;
 
 const homeStartingContent = `Understanding Asynchronous Programming 🔄:
@@ -26,7 +26,11 @@ app.use(express.static("public"));
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(mongodbConnectionString);
+  try {
+    await mongoose.connect("mongodb://localhost:27017/test");
+  } catch (error) {
+    handleError(error);
+  }
 }
 
 const postSchema = new mongoose.Schema({
