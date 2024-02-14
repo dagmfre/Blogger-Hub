@@ -20,7 +20,6 @@ To empower people to share their thoughts easily, connect with others, and poten
 **Work in progress:**
 - Advanced searching
 - Filter blogs by topics, keywords and users.
-- 
 ## USED TECHNOLOGIES
 ≫ EJS
 ≫ Javascript
